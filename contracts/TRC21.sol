@@ -110,8 +110,8 @@ contract TRC21 {
     /**
     * @dev Gets the balance of the specified address.
     * @param owner The address to query the balance of.
-        * @return An uint256 representing the amount owned by the passed address.
-        */
+    * @return An uint256 representing the amount owned by the passed address.
+    */
     function balanceOf(address owner) public view returns (uint256) {
         return _balances[owner];
     }
@@ -119,9 +119,9 @@ contract TRC21 {
     /**
     * @dev Function to check the amount of tokens that an owner allowed to a spender.
     * @param owner address The address which owns the funds.
-        * @param spender address The address which will spend the funds.
-        * @return A uint256 specifying the amount of tokens still available for the spender.
-        */
+    * @param spender address The address which will spend the funds.
+    * @return A uint256 specifying the amount of tokens still available for the spender.
+    */
     function allowance(address owner,address spender) public	view returns (uint256){
         return _allowed[owner][spender];
     }
@@ -129,8 +129,8 @@ contract TRC21 {
     /**
     * @dev Transfer token for a specified address
     * @param to The address to transfer to.
-        * @param value The amount to be transferred.
-            */
+    * @param value The amount to be transferred.
+    */
     function transfer(address to, uint256 value) public returns (bool) {
         uint256 total = value.add(_minFee);
         require(to != address(0));
@@ -147,8 +147,8 @@ contract TRC21 {
     * race condition is to first reduce the spender's allowance to 0 and set the desired value afterwards:
     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
     * @param spender The address which will spend the funds.
-        * @param value The amount of tokens to be spent.
-        */
+    * @param value The amount of tokens to be spent.
+    */
     function approve(address spender, uint256 value) public returns (bool) {
         require(spender != address(0));
         require(_balances[msg.sender]>=_minFee);
@@ -180,11 +180,11 @@ contract TRC21 {
     * @dev Increase the amount of tokens that an owner allowed to a spender.
     * approve should be called when allowed_[_spender] == 0. To increment
     * allowed value is better to use this function to avoid 2 calls (and wait until
-                                                                     * the first transaction is mined)
-                                                                     * From MonolithDAO Token.sol
-                                                                     * @param spender The address which will spend the funds.
-                                                                         * @param addedValue The amount of tokens to increase the allowance by.
-                                                                         */
+    * the first transaction is mined)
+    * From MonolithDAO Token.sol
+    * @param spender The address which will spend the funds.
+    * @param addedValue The amount of tokens to increase the allowance by.
+    */
     function increaseAllowance(address spender,uint256 addedValue) public returns (bool){
         require(spender != address(0));
         require(_balances[msg.sender]>=_minFee);
@@ -199,11 +199,11 @@ contract TRC21 {
     * @dev Decrease the amount of tokens that an owner allowed to a spender.
     * approve should be called when allowed_[_spender] == 0. To decrement
     * allowed value is better to use this function to avoid 2 calls (and wait until
-                                                                     * the first transaction is mined)
-                                                                     * From MonolithDAO Token.sol
-                                                                     * @param spender The address which will spend the funds.
-                                                                         * @param subtractedValue The amount of tokens to decrease the allowance by.
-                                                                         */
+    * the first transaction is mined)
+    * From MonolithDAO Token.sol
+    * @param spender The address which will spend the funds.
+    * @param subtractedValue The amount of tokens to decrease the allowance by.
+    */
     function decreaseAllowance(address spender,uint256 subtractedValue) public returns (bool){
         require(spender != address(0));
         require(_balances[msg.sender]>=_minFee);
@@ -217,9 +217,9 @@ contract TRC21 {
     /**
     * @dev Transfer token for a specified addresses
     * @param from The address to transfer from.
-        * @param to The address to transfer to.
-            * @param value The amount to be transferred.
-            */
+    * @param to The address to transfer to.
+    * @param value The amount to be transferred.
+    */
     function _transfer(address from, address to, uint256 value) internal {
         require(value <= _balances[from]);
         require(to != address(0));
@@ -232,10 +232,10 @@ contract TRC21 {
     * @dev Internal function that mints an amount of the token and assigns it to
     * an owner. This encapsulates the modification of balances such that the
     * proper events are emitted.
-        * @param owner The account that will receive the created tokens.
-        * @param value The amount that will be created.
-        * @param amount The amount fee that will be lost when transferring.
-        */
+    * @param owner The account that will receive the created tokens.
+    * @param value The amount that will be created.
+    * @param amount The amount fee that will be lost when transferring.
+    */
     function _mint(address owner, uint256 value,uint256 amount) internal {
         require(owner != address(0));
         _totalSupply = _totalSupply.add(value);
@@ -248,9 +248,9 @@ contract TRC21 {
     /**
     * @dev Internal function that burns an amount of the token of a given
     * account.
-        * @param account The account whose tokens will be burnt.
-        * @param value The amount that will be burnt.
-        */
+    * @param account The account whose tokens will be burnt.
+    * @param value The amount that will be burnt.
+    */
     function _burn(address account, uint256 value) internal {
         require(account != address(0));
         require(value <= _balances[account]);
