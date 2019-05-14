@@ -1,0 +1,27 @@
+{
+  "name": "trc20",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomochain/trc20.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tomochain/trc20/issues"
+  },
+  "homepage": "https://github.com/tomochain/trc20#readme",
+  "dependencies": {
+    "bignumber.js": "^8.1.1",
+    "config": "^3.1.0",
+    "ganache-cli": "^6.4.2",
+    "truffle": "^5.0.13",
+    "truffle-hdwallet-provider": "^1.0.6",
+    "web3-provider-engine": "^15.0.0"
+  }
+}
