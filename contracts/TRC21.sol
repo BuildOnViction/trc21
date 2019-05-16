@@ -87,10 +87,8 @@ interface ITRC21 {
 
 /**
  * @title Standard TRC21 token
- *
  * @dev Implementation of the basic standard token.
  */
-
 contract TRC21 is ITRC21 {
     using SafeMath for uint256;
 
@@ -259,22 +257,22 @@ contract MyTRC21 is TRC21 {
     }
 
     /**
-    * @return the name of the token.
+     * @return the name of the token.
      */
     function name() public view returns (string memory) {
         return _name;
     }
 
     /**
-    * @return the symbol of the token.
-    */
+     * @return the symbol of the token.
+     */
     function symbol() public view returns (string memory) {
         return _symbol;
     }
 
     /**
-    * @return the number of decimals of the token.
-    */
+     * @return the number of decimals of the token.
+     */
     function decimals() public view returns (uint8) {
         return _decimals;
     }
