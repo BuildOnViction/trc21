@@ -212,7 +212,6 @@ contract TRC21 is ITRC21 {
         emit Transfer(from, to, value);
     }
 
-
     /**
      * @dev Internal function that mints an amount of the token and assigns it to
      * an account. This encapsulates the modification of balances such that the
