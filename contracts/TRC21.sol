@@ -132,7 +132,7 @@ contract TRC21 is ITRC21 {
      * @dev Estimate transaction fee.
      * @param value
      */
-	function estimateFee(uint256 value) public view returns (uint256) {
+    function estimateFee(uint256 value) public view returns (uint256) {
         return value.mul(0).add(_minFee);
     }
 
@@ -213,36 +213,36 @@ contract TRC21 is ITRC21 {
     }
 
 
-	/**
-	 * @dev Internal function that mints an amount of the token and assigns it to
-	 * an account. This encapsulates the modification of balances such that the
-	 * proper events are emitted.
-	 * @param account The account that will receive the created tokens.
-	 * @param value The amount that will be created.
-	 */
-	function _mint(address account, uint256 value) internal {
-		require(account != 0);
-		_totalSupply = _totalSupply.add(value);
-		_balances[account] = _balances[account].add(value);
-		emit Transfer(address(0), account, value);
-	}
+    /**
+     * @dev Internal function that mints an amount of the token and assigns it to
+     * an account. This encapsulates the modification of balances such that the
+     * proper events are emitted.
+     * @param account The account that will receive the created tokens.
+     * @param value The amount that will be created.
+     */
+    function _mint(address account, uint256 value) internal {
+        require(account != 0);
+        _totalSupply = _totalSupply.add(value);
+        _balances[account] = _balances[account].add(value);
+        emit Transfer(address(0), account, value);
+    }
 
-	/**
-	 * @dev Transfers token's foundation to new issuer
-	 * @param newIssuer The address to transfer ownership to.
-	 */
-	function _changeIssuer(address newIssuer) internal {
-		require(newIssuer != address(0));
-		_issuer = newIssuer;
-	}
+    /**
+     * @dev Transfers token's foundation to new issuer
+     * @param newIssuer The address to transfer ownership to.
+     */
+    function _changeIssuer(address newIssuer) internal {
+        require(newIssuer != address(0));
+        _issuer = newIssuer;
+    }
 
-	/**
-	 * @dev Change minFee
-	 * @param value minFee
-	 */
-	function _changeMinFee(uint256 value) internal {
-		_minFee = value;
-	}
+    /**
+     * @dev Change minFee
+     * @param value minFee
+     */
+    function _changeMinFee(uint256 value) internal {
+        _minFee = value;
+    }
 
 }
 
