@@ -93,10 +93,10 @@ contract TRC21 is ITRC21 {
     using SafeMath for uint256;
 
     mapping (address => uint256) private _balances;
-    mapping (address => mapping (address => uint256)) private _allowed;
-    uint256 private _totalSupply;
     uint256 private _minFee;
     address private _issuer;
+    mapping (address => mapping (address => uint256)) private _allowed;
+    uint256 private _totalSupply;
 
     /**
      * @dev Total number of tokens in existence
