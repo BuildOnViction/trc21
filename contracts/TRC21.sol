@@ -130,7 +130,7 @@ contract TRC21 is ITRC21 {
 
     /**
      * @dev Estimate transaction fee.
-     * @param value
+     * @param value amount tokens sent
      */
     function estimateFee(uint256 value) public view returns (uint256) {
         return value.mul(0).add(_minFee);
